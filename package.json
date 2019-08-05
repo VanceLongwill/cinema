@@ -8,14 +8,24 @@
     "nodemon": "^1.18.11",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "react-scripts": "2.1.8"
+    "react-scripts": "2.1.8",
+    "typescript": "^3.5.3"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.5",
+    "@types/jest": "^24.0.16",
+    "@types/node": "^12.6.9",
+    "@types/react": "^16.8.24",
+    "@types/react-dom": "^16.8.5",
+    "ts-node": "^8.3.0"
   },
   "scripts": {
     "start-frontend": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "start-backend": "nodemon server.js"
+    "start-backend": "nodemon --watch 'server.ts' --exec 'ts-node --skip-project' server.ts",
+    "types": "npx tsc --project ."
   },
   "eslintConfig": {
     "extends": "react-app"

@@ -1,5 +1,5 @@
-const express = require('express');
-const cors = require('cors');
+import * as cors from 'cors';
+import * as express from 'express';
 const port = '8080';
 const app = express();
 app.options('*', cors());
