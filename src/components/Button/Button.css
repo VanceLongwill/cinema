@@ -1,0 +1,22 @@
+.Button {
+  box-shadow: none;
+  border: none;
+  padding: var(--spacing-md);
+  font-weight: 700;
+  font-size: 1.5rem;
+  cursor: pointer;
+  border-bottom: 5px solid transparent;
+  transition: 0.2ms ease-out;
+}
+
+.Button:hover {
+  border-color: black;
+}
+
+.Button-positive {
+  background: var(--positive-color);
+}
+
+.Button-negative {
+  background: var(--negative-color);
+}

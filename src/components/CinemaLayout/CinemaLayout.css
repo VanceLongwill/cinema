@@ -1,0 +1,5 @@
+.CinemaLayout {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(50px, 1fr));
+  grid-gap: var(--spacing-md);
+}

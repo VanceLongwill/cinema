@@ -1,0 +1,5 @@
+.Price {
+  font-weight: 700;
+  padding: var(--spacing-sm);
+  background: var(--secondary-dark-color);
+}

@@ -1,0 +1,4 @@
+.SeatNumber {
+  font-weight: 700;
+  padding: var(--spacing-sm);
+}

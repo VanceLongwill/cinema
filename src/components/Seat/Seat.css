@@ -1,0 +1,31 @@
+.Seat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--secondary-light-color);
+  padding: var(--spacing-sm);
+  transition: 0.25s ease-out;
+  overflow: hidden;
+  border: 0.5rem solid transparent;
+  color: var(--primary-light-color);
+}
+
+.Seat:not(.Seat-disabled):hover {
+  cursor: pointer;
+  transform: scale(1.1);
+  background-color: var(--primary-highlight-color);
+}
+
+.Seat-disabled {
+  background-color: var(--primary-dark-color);
+}
+
+.Seat-selected {
+  border-color: var(--positive-color);
+}
+
+.SeatIcon {
+  position: absolute;
+  color: var(--primary-light-color);
+}

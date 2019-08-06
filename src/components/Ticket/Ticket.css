@@ -1,0 +1,54 @@
+.Ticket {
+  position: relative;
+  background: var(--secondary-dark-color);
+  padding: var(--spacing-md);
+  min-height: 150px;
+  width: 100%;
+  max-width: 500px;
+  border-radius: 20px;
+}
+
+.TicketLeftEdge {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  top: 50%;
+  transform: translateY(-50%);
+  left: -5px;
+}
+
+.LeftArrow {
+	border-color: transparent var(--secondary-dark-color);
+	border-style: solid;
+	border-width: 10px 10px 10px 0px;
+}
+
+.TicketRightEdge {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  top: 50%;
+  transform: translateY(-50%);
+  right: -5px;
+}
+
+.RightArrow {
+	border-color: transparent var(--secondary-dark-color);
+	border-style: solid;
+	border-width: 10px 0px 10px 10px;
+}
+
+.TicketContent {
+  border: 10px solid var(--secondary-light-color);
+  border-radius: 20px;
+  padding: var(--spacing-sm);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 2rem;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+

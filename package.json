@@ -3,6 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.21",
+    "@fortawesome/free-solid-svg-icons": "^5.10.1",
+    "@fortawesome/react-fontawesome": "^0.1.4",
+    "classnames": "^2.2.6",
     "cors": "^2.8.5",
     "express": "^4.16.4",
     "nodemon": "^1.18.11",
@@ -12,11 +16,19 @@
     "typescript": "^3.5.3"
   },
   "devDependencies": {
+    "@types/classnames": "^2.2.9",
     "@types/cors": "^2.8.5",
     "@types/jest": "^24.0.16",
     "@types/node": "^12.6.9",
     "@types/react": "^16.8.24",
     "@types/react-dom": "^16.8.5",
+    "@typescript-eslint/eslint-plugin": "^1.13.0",
+    "@typescript-eslint/parser": "^1.13.0",
+    "eslint-config-prettier": "^6.0.0",
+    "eslint-config-react": "^1.1.7",
+    "eslint-plugin-prettier": "^3.1.0",
+    "eslint-plugin-react-hooks": "^1.6.1",
+    "prettier": "^1.18.2",
     "ts-node": "^8.3.0"
   },
   "scripts": {
@@ -25,7 +37,9 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "start-backend": "nodemon --watch 'server.ts' --exec 'ts-node --skip-project' server.ts",
-    "types": "npx tsc --project ."
+    "types": "npx tsc --project .",
+    "lint": "npx eslint '**/*.ts{,x}'",
+    "format": "npx prettier --write '**/*.ts{,x}'"
   },
   "eslintConfig": {
     "extends": "react-app"
