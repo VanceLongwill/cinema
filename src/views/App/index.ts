@@ -1,2 +1,3 @@
 import App from "./App";
-export default App;
+import { withRouter } from "react-router-dom";
+export default withRouter(App);

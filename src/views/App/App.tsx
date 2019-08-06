@@ -1,5 +1,7 @@
 import React from "react";
 
+import { RouteComponentProps } from "react-router";
+
 import CinemaLayout from "../../components/CinemaLayout";
 import Seat from "../../components/Seat";
 import Price from "../../components/Price";
@@ -12,7 +14,12 @@ import { SeatInfo } from "../../types";
 
 import "./App.css";
 
-export interface Props {
+export interface MatchParams {
+  id?: string;
+  confirm?: "confirm";
+}
+
+export interface Props extends RouteComponentProps<MatchParams> {
   seats: SeatInfo[];
 }
 
@@ -22,21 +29,39 @@ export interface State {
 }
 
 class App extends React.Component<Props, State> {
-  public state: State = {
-    selectedSeat: null,
-    showModal: false
-  };
+  public constructor(props: Props) {
+    super(props);
+    let selectedSeat = null;
+    if (props.match.params.id) {
+      selectedSeat = this.getSeatByNumber(props.match.params.id) || null;
+    }
+    const showModal = !!props.match.params.confirm;
+    this.state = {
+      selectedSeat,
+      showModal
+    };
+  }
+  public componentDidMount(): void {
+    document.title = "CINEMA | Book your seat";
+  }
+  private getSeatByNumber(seatNumber: string): SeatInfo | undefined {
+    return this.props.seats.find(seat => seat.seatNumber === seatNumber);
+  }
   private handleSeatClick = (seatNumber: string) => {
-    const selectedSeat = this.props.seats.find(
-      seat => seat.seatNumber === seatNumber
-    );
+    const selectedSeat = this.getSeatByNumber(seatNumber);
     if (!selectedSeat) {
       return;
     }
+    this.props.history.push(`/book/${seatNumber}/confirm`);
     this.setState({ selectedSeat, showModal: true });
   };
   private handleCloseModal = () => {
+    const { selectedSeat } = this.state;
+    if (selectedSeat === null) {
+      return;
+    }
     this.setState({ showModal: false });
+    this.props.history.push(`/book/${selectedSeat.seatNumber}`);
   };
   private handleConfimBooking = () => {
     this.handleCloseModal();
