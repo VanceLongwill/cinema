@@ -11,29 +11,37 @@ import Ticket from "../../components/Ticket";
 import Button from "../../components/Button";
 
 import { SeatInfo } from "../../types";
+import { getSeatByNumber } from "../../utils";
 
-import "./App.css";
+import "./Booking.css";
 
 export interface MatchParams {
   id?: string;
   confirm?: "confirm";
 }
 
-export interface Props extends RouteComponentProps<MatchParams> {
+export interface PropsWithoutRouter {
+  fetchSeats: () => void;
   seats: SeatInfo[];
+  loading: boolean;
+  error: false | string;
 }
+export interface Props
+  extends RouteComponentProps<MatchParams>,
+    PropsWithoutRouter {}
 
 export interface State {
   selectedSeat: SeatInfo | null;
   showModal: boolean;
 }
 
-class App extends React.Component<Props, State> {
+export default class Booking extends React.Component<Props, State> {
   public constructor(props: Props) {
     super(props);
     let selectedSeat = null;
-    if (props.match.params.id) {
-      selectedSeat = this.getSeatByNumber(props.match.params.id) || null;
+    if (props.match.params.id && props.seats.length) {
+      selectedSeat =
+        getSeatByNumber(props.match.params.id, props.seats) || null;
     }
     const showModal = !!props.match.params.confirm;
     this.state = {
@@ -43,12 +51,26 @@ class App extends React.Component<Props, State> {
   }
   public componentDidMount(): void {
     document.title = "CINEMA | Book your seat";
+    if (!this.props.seats.length) {
+      this.props.fetchSeats();
+    }
   }
-  private getSeatByNumber(seatNumber: string): SeatInfo | undefined {
-    return this.props.seats.find(seat => seat.seatNumber === seatNumber);
+  public static getDerivedStateFromProps(
+    props: Props,
+    state: State
+  ): Partial<State> | null {
+    const { id } = props.match.params;
+    // use url slug as source of truth
+    if (id && id !== (state.selectedSeat && state.selectedSeat.seatNumber)) {
+      const selectedSeat = getSeatByNumber(id, props.seats);
+      if (selectedSeat) {
+        return { selectedSeat };
+      }
+    }
+    return null;
   }
   private handleSeatClick = (seatNumber: string) => {
-    const selectedSeat = this.getSeatByNumber(seatNumber);
+    const selectedSeat = getSeatByNumber(seatNumber, this.props.seats);
     if (!selectedSeat) {
       return;
     }
@@ -60,8 +82,8 @@ class App extends React.Component<Props, State> {
     if (selectedSeat === null) {
       return;
     }
-    this.setState({ showModal: false });
     this.props.history.push(`/book/${selectedSeat.seatNumber}`);
+    this.setState({ showModal: false });
   };
   private handleConfimBooking = () => {
     this.handleCloseModal();
@@ -90,9 +112,18 @@ class App extends React.Component<Props, State> {
 
   public render(): JSX.Element {
     const { selectedSeat } = this.state;
-    const { seats } = this.props;
+    const { seats, loading, error } = this.props;
+
+    if (loading) {
+      return <h1>Loading seats...</h1>;
+    }
+
+    if (error) {
+      return <h1>{error}</h1>;
+    }
+
     return (
-      <div className="App">
+      <div className="Booking">
         <h1>Book your seat</h1>
         <div className="CinemaContainer">
           <div className="FlexColumn LegendContainer">
@@ -127,5 +158,3 @@ class App extends React.Component<Props, State> {
     );
   }
 }
-
-export default App;

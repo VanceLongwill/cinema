@@ -1,8 +1,7 @@
 import React from "react";
 import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 
-import App from "../views/App";
-import seatData from "../seatData";
+import Booking from "../views/Booking";
 
 const Router: React.FunctionComponent = () => (
   <BrowserRouter>
@@ -11,7 +10,7 @@ const Router: React.FunctionComponent = () => (
       <Route
         // optional confirm param triggers the display of ticket/confirm info
         path="/book/:id?/:confirm?"
-        component={() => <App seats={seatData.seats} />}
+        component={Booking}
       />
       <Route path="/" exact component={() => <Redirect to="/book" />} />
       {/* 404 / fallback  */}
