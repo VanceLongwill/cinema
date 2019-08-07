@@ -1,12 +1,59 @@
+# About my solution
+
+## Frontend
+
+##### Available scripts
+
+- `yarn types` - typescript type check (also performed on starting the dev server and building)
+- `yarn test` - run all project tests
+- `yarn format` - format code
+- `yarn lint` - lint code
+
+##### Stack :computer:
+
+- [React]() for a view library
+- [Typescript]() for static types
+- [react-router]() for routing (users can share their booking urls)
+- [redux]() for state management
+- [redux-saga]() for handling async side effects
+
+##### Code Quality :microscope:
+
+- Static type checking with [Typescript]()
+- Linting with [eslint]()
+- Code formatting via [prettier]() to ensure a consistent style
+
+##### Testing :white_check_mark:
+
+- [Jest]() testing framework/test runner
+- [Enzyme]() for rendering react components
+- [Enzyme-to-json]() for human readable snapshot tests
+- [redux-devtools]() enabled for easy redux debugging in browser
+
+## Backend
+
+1. Start a mongodb server
+2. Start the backend server
+   > NB: The DB_URL environment variable must be set with the path to the mongodb database you wish to use
+
+```sh
+DB_URL="mongodb://localhost/seats" yarn start-backend
+```
+
+##### Stack :computer:
+
+- [Mongoose]() for mongodb interactions
+- [Typescript]() for static types
+
 # Elucidat Javascript Coding Test
 
-This coding test is split into two parts, frontend focused and backend focused, please pick the one that is most relevant to your desired role. Fullstack developers or the adventurous can attempt both.  Whatever test you do, please read to the end as there is information for both tests further down.
+This coding test is split into two parts, frontend focused and backend focused, please pick the one that is most relevant to your desired role. Fullstack developers or the adventurous can attempt both. Whatever test you do, please read to the end as there is information for both tests further down.
 
 ## Frontend Focus test
 
-You are developing a user interface for a cinema booking system.  The UI should include the layout of the cinema and when a user clicks on a seat they should be presented with their booking information in the style of a cinema ticket.  Users should be able to see the booking information, such as seat number, availability and price, before they click to book the seat.
+You are developing a user interface for a cinema booking system. The UI should include the layout of the cinema and when a user clicks on a seat they should be presented with their booking information in the style of a cinema ticket. Users should be able to see the booking information, such as seat number, availability and price, before they click to book the seat.
 
-If you are familiar with react, please use that to build the UI.  This project has been created using facebook's create-react-app.  If you are not familiar with react and would prefer to use jQuery or vanilla javascript, please use the index.html inside the build folder as a starting point.
+If you are familiar with react, please use that to build the UI. This project has been created using facebook's create-react-app. If you are not familiar with react and would prefer to use jQuery or vanilla javascript, please use the index.html inside the build folder as a starting point.
 
 React developers, please use yarn rather than npm and please do not eject the create-react-app set up. The react app can be started for development on port 3000 using `yarn start-frontend`.
 
@@ -14,10 +61,9 @@ Guidance:
 
 Understanding that time may be a constraint for some, please focus on writing clean, maintainable and testable code rather than going overboard on UI design.
 
-
 ## Backend Focus test
 
-You are developing the backend api for a cinema booking system.  The server should be written using express that has been set up to a basic extent for you.  The starting file for the api is `server.js` and the server can be started on port 8080 using `yarn backend-start`  The REST API should have the following endpoints:
+You are developing the backend api for a cinema booking system. The server should be written using express that has been set up to a basic extent for you. The starting file for the api is `server.js` and the server can be started on port 8080 using `yarn backend-start` The REST API should have the following endpoints:
 
 `/seatData` [GET REQUEST] should take one query parameter, `seatNumber` and return a json response in the following format
 
@@ -32,7 +78,7 @@ You are developing the backend api for a cinema booking system.  The server shou
 
 `/bookSeat` [POST REQUEST] should take one body parameter, `seatNumber` and should alter the state of the seat availability and return the details of the seat in the same format as `/seatData`.
 
-`/availableSeats` [GET REQUEST] will take one optional query parameter `disabled`.  If disabled is false it will return all the available seats.  If it is true, it will return only the disabled seats that are disability accessible.  The return value should be a json response in the following format
+`/availableSeats` [GET REQUEST] will take one optional query parameter `disabled`. If disabled is false it will return all the available seats. If it is true, it will return only the disabled seats that are disability accessible. The return value should be a json response in the following format
 
 ```
     {
@@ -49,23 +95,12 @@ You are developing the backend api for a cinema booking system.  The server shou
 ```
 
 If you have the time and want to take on a further challenge then imagine the following scenario:
-The booking site has proven extremely popular and traffic to it is heavy, multiple people try to book the same seat in a smaller time period than it takes to complete the booking.  Please code a way around this problem and explain your approach here:
-
-
+The booking site has proven extremely popular and traffic to it is heavy, multiple people try to book the same seat in a smaller time period than it takes to complete the booking. Please code a way around this problem and explain your approach here:
 
 ## Further Information
 
 - Dummy data for the seats in both tests has been provided in `seatData.js` feel free to move this file or convert it if you wish, but please use the data as provided.
 - create-react-app bundles jest with it, however if you wish to write automated tests for front or back end, it is not required to only use jest. Please do, however, include a simple script in the package.json to run the tests, and explain your approach here:
-
-
-
-
-
-
-
-
-
 
 ####################################### create-react-app info
 
