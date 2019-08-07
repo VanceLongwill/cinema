@@ -20,16 +20,16 @@ export const Seat: React.FunctionComponent<SeatProps> = ({
   onClick
 }) => {
   const handleClick = React.useCallback(() => {
-    if (onClick) {
+    if (active && onClick) {
       onClick(id);
     }
-  }, [id, onClick]);
+  }, [id, onClick, active]);
   return (
     <div
       className={cx({
         Seat: true,
         "Seat-disabled": !active,
-        "Seat-selected": selected
+        "Seat-selected": active && selected
       })}
       onClick={handleClick}
     >
