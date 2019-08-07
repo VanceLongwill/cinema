@@ -2,6 +2,7 @@
   "name": "elucidat-javascript-test",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://vancelongwill.github.io/cinema",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.21",
     "@fortawesome/free-solid-svg-icons": "^5.10.1",
@@ -40,6 +41,7 @@
     "eslint-config-react": "^1.1.7",
     "eslint-plugin-prettier": "^3.1.0",
     "eslint-plugin-react-hooks": "^1.6.1",
+    "gh-pages": "^2.1.0",
     "prettier": "^1.18.2",
     "redux-devtools": "^3.5.0",
     "ts-node": "^8.3.0"
@@ -52,7 +54,9 @@
     "start-backend": "nodemon --watch 'server' --exec 'ts-node --skip-project' 'server/**'",
     "types": "npx tsc --project .",
     "lint": "npx eslint '**/*.ts{,x}'",
-    "format": "npx prettier --write '**/*.ts{,x}'"
+    "format": "npx prettier --write '**/*.ts{,x}'",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build --git git"
   },
   "eslintConfig": {
     "extends": "react-app"

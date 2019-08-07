@@ -3,8 +3,10 @@ import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 
 import Booking from "../views/Booking";
 
+// Github pages
+const baseName = process.env.NODE_ENV === "production" ? "/cinema" : "";
 const Router: React.FunctionComponent = () => (
-  <BrowserRouter>
+  <BrowserRouter basename={baseName}>
     <Switch>
       {/* Cinema booking view */}
       <Route
