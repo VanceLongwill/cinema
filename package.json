@@ -23,6 +23,7 @@
   "devDependencies": {
     "@types/classnames": "^2.2.9",
     "@types/cors": "^2.8.5",
+    "@types/enzyme": "^3.10.3",
     "@types/jest": "^24.0.16",
     "@types/mongoose": "^5.5.12",
     "@types/node": "^12.6.9",
@@ -32,6 +33,9 @@
     "@types/react-router-dom": "^4.3.4",
     "@typescript-eslint/eslint-plugin": "^1.13.0",
     "@typescript-eslint/parser": "^1.13.0",
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.14.0",
+    "enzyme-to-json": "^3.4.0",
     "eslint-config-prettier": "^6.0.0",
     "eslint-config-react": "^1.1.7",
     "eslint-plugin-prettier": "^3.1.0",
@@ -58,5 +62,10 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "jest": {
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ]
+  }
 }

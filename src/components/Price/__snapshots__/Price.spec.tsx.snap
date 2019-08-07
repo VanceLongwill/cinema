@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Price should render without errors 1`] = `
+<Price>
+  <span
+    className="Price"
+  />
+</Price>
+`;

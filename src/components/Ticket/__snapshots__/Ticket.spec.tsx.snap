@@ -1,0 +1,73 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Ticket should render without errors 1`] = `
+<Ticket>
+  <div
+    className="Ticket"
+  >
+    <div
+      className="TicketLeftEdge"
+    >
+      <span
+        className="LeftArrow"
+      />
+      <span
+        className="LeftArrow"
+      />
+      <span
+        className="LeftArrow"
+      />
+      <span
+        className="LeftArrow"
+      />
+      <span
+        className="LeftArrow"
+      />
+      <span
+        className="LeftArrow"
+      />
+      <span
+        className="LeftArrow"
+      />
+    </div>
+    <div
+      className="TicketContent"
+    >
+      <span>
+        ADMIT ONE
+      </span>
+      <span>
+        PRICE: 
+      </span>
+      <span>
+        SEAT NO:
+      </span>
+    </div>
+    <div
+      className="TicketRightEdge"
+    >
+      <span
+        className="RightArrow"
+      />
+      <span
+        className="RightArrow"
+      />
+      <span
+        className="RightArrow"
+      />
+      <span
+        className="RightArrow"
+      />
+      <span
+        className="RightArrow"
+      />
+      <span
+        className="RightArrow"
+      />
+      <span
+        className="RightArrow"
+      />
+    </div>
+  </div>
+</Ticket>
+`;
